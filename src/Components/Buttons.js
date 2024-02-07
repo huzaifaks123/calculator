@@ -30,7 +30,12 @@ export default function NumButton() {
             dispatch(setResult(""))
         }
         else if (num >= 0 && num <= 9) {
-            if (operations) {
+            if (result) {
+                dispatch(setOperations(""))
+                dispatch(setLast(""))
+                dispatch(setResult(""))
+                dispatch(setInitial(num.toString()))
+            } else if (operations) {
                 dispatch(setLast(last + num.toString()))
             } else {
                 dispatch(setInitial(initial + num.toString()))
@@ -80,7 +85,8 @@ export default function NumButton() {
                 dispatch(setResult(initial * last))
             }
             else if (last && operations === "/") {
-                dispatch(setResult(initial / last))
+                dispatch(setResult((initial / last).toFixed(2)))
+
             }
             else if (last && operations === "+") {
                 dispatch(setResult(parseFloat(initial) + parseFloat(last)));

@@ -1,0 +1,31 @@
+.displayContainer{
+    background-color: #E5B8F4;
+    color: #2D033B;
+    width: 380px;
+    height: 200px;
+    padding-bottom: 40px;
+    border: 2px solid #2D033B;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+.initial{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 325px;
+    overflow: hidden;
+}
+.final,.second{
+    display: flex;
+    justify-content: space-between;
+    width: 325px;
+    overflow: hidden;
+}
+.final{
+    font-size: 40px;
+    font-weight: bold;
+    border-top: 2px solid #2D033B;
+    overflow: hidden;
+}

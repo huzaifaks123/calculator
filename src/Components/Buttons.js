@@ -75,8 +75,11 @@ export default function NumButton() {
                 dispatch(setLast(""))
                 dispatch(setResult(""))
             }
-
             else if (last) {
+                if(last.toString().length===1){
+                dispatch(setLast(""))
+                return
+                }
                 const updatedNum = parseInt(last.toString().slice(0, -1), 10);
                 dispatch(setLast(updatedNum))
             } else if (!last && operations) {

@@ -29,16 +29,25 @@ export default function NumButton() {
             dispatch(setLast(""))
             dispatch(setResult(""))
         }
-        else if (num >= 0 && num <= 9) {
+        else if ((num >= 0 && num <= 9) || num === ".") {                                                                                                                                                                                                                                       
             if (result) {
                 dispatch(setOperations(""))
                 dispatch(setLast(""))
                 dispatch(setResult(""))
                 dispatch(setInitial(num.toString()))
+                if (num === ".") {
+                    dispatch(setInitial("0" + num));
+                }
             } else if (operations) {
                 dispatch(setLast(last + num.toString()))
+                if (num === "." && !last) {
+                    dispatch(setLast("0" + num));
+                }
             } else {
                 dispatch(setInitial(initial + num.toString()))
+                if (num === "." && !initial) {
+                    dispatch(setInitial("0" + num));
+                }
             }
         }
         else if (num === "00") {
